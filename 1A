@@ -1,0 +1,125 @@
+//IMPLEMENTATION OF RECURSIVE FUNCTION FOR TREE TRAVERSAL 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct n { int d; struct n *l,*r; };
+
+struct n* ins(struct n* t,int x){
+    if(!t){
+        t=(struct n*)malloc(sizeof(struct n));
+        t->d=x; t->l=t->r=NULL;
+        return t;
+    }
+    if(x<t->d) t->l=ins(t->l,x);
+    else t->r=ins(t->r,x);
+    return t;
+}
+
+void in(struct n* t){ if(t){ in(t->l); printf("%d ",t->d); in(t->r);} }
+void pre(struct n* t){ if(t){ printf("%d ",t->d); pre(t->l); pre(t->r);} }
+void post(struct n* t){ if(t){ post(t->l); post(t->r); printf("%d ",t->d);} }
+void clr(struct n* t){ if(t){ clr(t->l); clr(t->r); free(t);} }
+
+int main(){
+    struct n* r=NULL; int c,x;
+    do{
+        printf("\nEnter your choice:\n1. Insert\n2. Traverse via inorder\n");
+        printf("3. Traverse via preorder\n4. Traverse via postorder\n5. Exit\n");
+        printf("Choice: "); scanf("%d",&c);
+        if(c==1){ printf("Enter element to insert: "); scanf("%d",&x); r=ins(r,x); }
+        else if(c==2) in(r);
+        else if(c==3) pre(r);
+        else if(c==4) post(r);
+        else if(c==5){ clr(r); printf("Memory Cleared\nPROGRAM TERMINATED\n"); }
+    }while(c!=5);
+    return 0;
+}
+
+
+//OUTPUT//
+
+
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 1
+Enter element to insert: 5
+
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 1
+Enter element to insert: 
+3
+
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 1
+Enter element to insert: 4
+
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 1
+Enter element to insert: 6
+
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 1
+Enter element to insert: 2
+
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 2
+2 3 4 5 6 
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 3
+5 3 2 4 6 
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 4
+2 4 3 6 5 
+Enter your choice:
+1. Insert
+2. Traverse via inorder
+3. Traverse via preorder
+4. Traverse via postorder
+5. Exit
+Choice: 5
+Memory Cleared
+PROGRAM TERMINATED
+
+
+=== Code Execution Successful ===
+
