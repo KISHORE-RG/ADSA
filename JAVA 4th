@@ -1,0 +1,49 @@
+// CONSTRUCTOR OVERLOADING OF ADDING NUMBERS
+
+class consov 
+{ 
+consov(int a, int b) 
+{ 
+System.out.println("\ninteger value : "+(a+b)); 
+} 
+ 
+consov(double a, double b) 
+{ 
+System.out.println("\ndouble value : "+(a+b)); 
+} 
+ 
+consov(float a, float b) 
+{ 
+System.out.println("\nfloat value : "+(a+b)); 
+} 
+ 
+consov(byte a, byte b) 
+{ 
+System.out.println("\nbyte value : "+(a+b)); 
+} 
+ 
+consov(short a, short b) 
+{ 
+System.out.println("\nshort value : "+(a+b)); 
+} 
+ 
+consov(long a, long b) 
+{ 
+System.out.println("\nlong value : "+(a+b)); 
+}  
+consov(String a, String b) 
+{ 
+System.out.println("\nstring value : "+(a+b)); 
+}  
+public static void main(String arg[]) 
+{ 
+consov t1,t2,t3,t4,t5,t6,t7; 
+t1 = new consov(5,10); 
+t2 = new consov(10.3,14.2); 
+t3 = new consov(5.3,3.2); 
+t4 = newconsov(100,-50); 
+t5 = new consov(10000,-20000); 
+t6 = new consov(250,200); 
+t7 = new consov("ssv","ksv"); 
+} 
+}
