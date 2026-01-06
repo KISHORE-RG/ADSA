@@ -1,0 +1,53 @@
+class employee 
+{ 
+int empid; 
+String name, designation; 
+double salary; 
+ 
+employee(int eid, String na, String des, double sa) 
+{ 
+empid = eid; 
+name = na; 
+designation = des; 
+salary =sa; 
+} 
+ 
+void show() 
+{ 
+System.out.println("\nEmployee Id : "+empid); 
+System.out.println("\nEmployee Name : "+name); 
+System.out.println("\nEmployee Designation : "+designation); 
+System.out.println("\nEmployee Salary : "+salary); 
+} 
+} 
+ 
+class sportsemployee extends employee 
+{ 
+String grade; 
+sportsemployee(int eid, String na, String des, String gra, double sa) 
+{ 
+super(eid,na,des,sa); 
+grade = gra; 
+} 
+                                              
+ 
+void show() 
+{ 
+System.out.println("\nSports Employee Grade : "+grade); 
+} 
+} 
+ 
+class override1 
+{ 
+public static void main(String arg[]) 
+{ 
+employee ee = new employee(101,"senthil","Professor",50000); 
+sportsemployee t = new  
+sportsemployee(101,"senthil","Professor","Batsman",50000); 
+employee em; 
+em = ee; 
+em.show(); 
+em = t; 
+em.show(); 
+} 
+}
