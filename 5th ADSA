@@ -65,3 +65,20 @@ void heap(int n)
      h[k]=v; 
   } 
  } 
+
+
+
+
+
+
+//OUTPUT: //
+Enter the size of array: 7 
+Enter the element: 10 
+Enter the element: 2 
+Enter the element: 5 
+Enter the element: 15 
+Enter the element: 30 
+Enter the element: 1 
+Enter the element: 40 
+Displaying elements in heap 
+40 30 10 15 2 1 5
