@@ -1,0 +1,81 @@
+Interface Program 
+
+rint.java 
+ 
+import java.rmi.*; 
+ 
+ 
+public interface rint extends Remote 
+{ 
+double fact(double x) throws RemoteException; 
+} 
+ 
+ 
+Implementation Program 
+ 
+rimp.java 
+ 
+ 
+import java.rmi.*; 
+importjava.rmi.server.*; 
+public class rimp extends UnicastRemoteObject implements rint 
+{ 
+public rimp() throws RemoteException 
+{} 
+public double fact(double x)throws RemoteException 
+{ 
+if(x <= 1) 
+return(1); 
+else 
+return(x*fact(x-1)); 
+} 
+}
+
+
+Server Program 
+ 
+rser.java 
+ 
+ 
+import java.rmi.*; 
+import java.net.*; 
+ 
+public class rser 
+{ 
+public static void main(String arg[]) 
+{ 
+try 
+{ 
+rimp ri = new rimp(); 
+Naming.rebind("rser",ri); 
+}catch(Exception e) 
+{ 
+System.out.println(e); 
+} 
+} 
+}
+
+
+
+Client Program 
+ 
+ 
+rcli.java 
+import java.rmi.*; 
+public class rcli 
+{ 
+public static void main(String arg[]) 
+{ 
+try 
+{ 
+rint rr = (rint)Naming.lookup("rmi://172.16.13.2/rser"); 
+double s = rr.fact(5); 
+System.out.println("factorial value is : "+s); 
+ 
+ 
+}catch(Exception e) 
+{ 
+System.out.println(e); 
+} 
+} 
+} 
